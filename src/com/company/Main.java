@@ -11,9 +11,9 @@ public class Main {
         System.out.println(pilot1.toString());
 
         //Create a weapon
-        Weapon boardGun = new Weapon("Board Gun");
-        Weapon bomb = new Weapon("Bomb");
-        Weapon missile = new Weapon("Missile");
+        Weapon boardGun = new Weapon("BoardGun-#1001");
+        Weapon bomb = new Weapon("Bomb-#cluster00346");
+        Weapon missile = new Weapon("Missile-#heat007654");
         System.out.println(boardGun.equals(boardGun));
         System.out.println(boardGun.equals(missile));
 
