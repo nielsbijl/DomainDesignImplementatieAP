@@ -17,9 +17,6 @@ public class F16 implements Airplane{
         fuelCapacity = FuelCapacity;
         fuelLevel = FuelLevel;
     }
-    public void setPilot(Pilot pilotOfThePlane){
-        pilot = pilotOfThePlane;
-    }
     public void setWeapons(Weapon weapon1, Weapon weapon2, Weapon weapon3){
         List<Weapon> newWeaponsList = new ArrayList<Weapon>();
         if (weapon1 != null){
@@ -41,13 +38,15 @@ public class F16 implements Airplane{
         }
         catch (Exception e){
             System.out.println(e);
+            weaponsList = null;
         }
         return weaponsList;
     }
     public List<String> weaponsToString(){
         List<String> weaponsListString = new ArrayList<String>();
         if (weapons == null) {
-            weaponsListString.add("There are no weapons on board");
+            System.out.println("There are no weapons on board");
+            weaponsListString = null;
         }
         else {
             for (Weapon weaponListItem : weapons){
@@ -80,7 +79,12 @@ public class F16 implements Airplane{
     @Override
     public void toTakeOff() {
         System.out.println("The " + type + " is ready to take off!!");
-        fuelLevel -= 20;
+        if (fuelLevel < 20){
+            System.out.println("There is not enough full to take off, please refull the plane");
+        }
+        else {
+            fuelLevel -= 20;
+        }
     }
 
     @Override
@@ -92,5 +96,17 @@ public class F16 implements Airplane{
     public void refull() {
         System.out.println("refulling the " + type + ".......");
         fuelLevel = 100;
+    }
+
+    @Override
+    public void setPilot(Pilot pilotOfThePlane){
+        pilot = pilotOfThePlane;
+    }
+
+    public boolean equals(F16 anotherF16) {
+        if (this == anotherF16) {
+            return true;
+        }
+        return false;
     }
 }

@@ -3,7 +3,7 @@ package com.company;
 public class Weapon {
     private String weaponType;
     public Weapon(String TypeOfWeapon){
-        weaponType = TypeOfWeapon;
+        this.weaponType = TypeOfWeapon;
     }
     public void explode(){
         System.out.println(String.format("Shooting weapon: %s........BOOMMMM!!!", weaponType));
@@ -11,7 +11,15 @@ public class Weapon {
     public String getWeaponType(){
         return weaponType;
     }
-//    public String toString(){
-//        return String.format("This weapon is a: %s", weaponType);
-//    }
+    public String toString(){
+        return ("This weapon is a: " + weaponType);
+    }
+    public boolean equals(Weapon anotherWeapon) {
+        if (this == anotherWeapon) {
+            return true;
+        }
+        return false;
+    }
+
+
 }

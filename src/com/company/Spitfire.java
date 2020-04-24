@@ -19,16 +19,13 @@ public class Spitfire implements Airplane {
     public void setPilot(Pilot pilotOfThePlane){
         pilot = pilotOfThePlane;
     }
-    public void setWeapons(Weapon weapon1, Weapon weapon2, Weapon weapon3){
+    public void setWeapons(Weapon weapon1, Weapon weapon2){
         List<Weapon> newWeaponsList = new ArrayList<Weapon>();
         if (weapon1 != null){
             newWeaponsList.add(weapon1);
         }
         if (weapon2 != null){
             newWeaponsList.add(weapon2);
-        }
-        if (weapon3 != null){
-            newWeaponsList.add(weapon3);
         }
         weapons = newWeaponsList;
     }
@@ -40,13 +37,15 @@ public class Spitfire implements Airplane {
         }
         catch (Exception e){
             System.out.println(e);
+            weaponsList = null;
         }
         return weaponsList;
     }
     public List<String> weaponsToString(){
         List<String> weaponsListString = new ArrayList<String>();
         if (weapons == null) {
-            weaponsListString.add("There are no weapons on board");
+            weaponsListString = null;
+            System.out.println("There are no weapons on board");
         }
         else {
             for (Weapon weaponListItem : weapons){
@@ -75,11 +74,15 @@ public class Spitfire implements Airplane {
         return type + "  " + getFuelCapacity() + "  " + getFuelLevel() + "  " +  pilot + "  " + "The weapons on board: " + weaponsToString();
     }
 
-
     @Override
     public void toTakeOff() {
         System.out.println("The " + type + " is ready to take off!!");
-        fuelLevel -= 10;
+        if (fuelLevel < 20){
+            System.out.println("There is not enough full to take off, please refull the plane");
+        }
+        else {
+            fuelLevel -= 10;
+        }
     }
 
     @Override
@@ -91,5 +94,11 @@ public class Spitfire implements Airplane {
     public void refull() {
         System.out.println("refulling the " + type + ".......");
         fuelLevel = 100;
+    }
+    public boolean equals(Spitfire anotherSpitfire) {
+        if (this == anotherSpitfire) {
+            return true;
+        }
+        return false;
     }
 }
