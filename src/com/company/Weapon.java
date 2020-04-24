@@ -15,10 +15,7 @@ public class Weapon {
         return ("This weapon is a: " + weaponType);
     }
     public boolean equals(Weapon anotherWeapon) {
-        if (this == anotherWeapon) {
-            return true;
-        }
-        return false;
+        return this == anotherWeapon;
     }
 
 

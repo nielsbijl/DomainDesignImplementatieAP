@@ -3,7 +3,7 @@ package com.company;
 public class Boeing747 implements Airplane {
     private String type;
     final int fuelCapacity;
-    public int fuelLevel = 100;
+    public int fuelLevel;
     private Pilot pilot;
 
     public Boeing747(String type, int fuelCapacity, int fuelLevel) {
@@ -20,7 +20,7 @@ public class Boeing747 implements Airplane {
             System.out.println("There is not enough full to take off, please refull the plane");
         }
         else {
-            fuelLevel -= 20;
+            this.fuelLevel -= 20;
         }
     }
 
@@ -32,7 +32,7 @@ public class Boeing747 implements Airplane {
     @Override
     public void refull() {
         System.out.println("refulling the " + type + ".......");
-        fuelLevel = 100;
+        this.fuelLevel = 100;
     }
 
     @Override
@@ -53,9 +53,6 @@ public class Boeing747 implements Airplane {
         return type + "  " + getFuelCapacity() + "  " + getFuelLevel() + "  " +  pilot;
     }
     public boolean equals(Boeing747 anotherBoeing747) {
-        if (this == anotherBoeing747) {
-            return true;
-        }
-        return false;
+        return this == anotherBoeing747;
     }
 }

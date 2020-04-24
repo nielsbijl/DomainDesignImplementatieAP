@@ -7,7 +7,7 @@ import java.util.List;
 public class F16 implements Airplane{
     private String type;
     final int fuelCapacity;
-    public int fuelLevel = 100;
+    public int fuelLevel;
     private Pilot pilot;
     private List<Weapon> weapons;
 
@@ -32,15 +32,13 @@ public class F16 implements Airplane{
     }
 
     public List<Weapon> getWeapons(){
-        List<Weapon> weaponsList = new ArrayList<Weapon>();
         try {
-            weaponsList = weapons;
+            return weapons;
         }
         catch (Exception e){
             System.out.println(e);
-            weaponsList = null;
         }
-        return weaponsList;
+        return null;
     }
     public List<String> weaponsToString(){
         List<String> weaponsListString = new ArrayList<String>();
@@ -104,9 +102,6 @@ public class F16 implements Airplane{
     }
 
     public boolean equals(F16 anotherF16) {
-        if (this == anotherF16) {
-            return true;
-        }
-        return false;
+        return this == anotherF16;
     }
 }

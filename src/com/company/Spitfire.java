@@ -6,7 +6,7 @@ import java.util.List;
 public class Spitfire implements Airplane {
     private String type;
     final int fuelCapacity;
-    public int fuelLevel = 100;
+    public int fuelLevel;
     private Pilot pilot;
     private List<Weapon> weapons;
 
@@ -96,9 +96,6 @@ public class Spitfire implements Airplane {
         fuelLevel = 100;
     }
     public boolean equals(Spitfire anotherSpitfire) {
-        if (this == anotherSpitfire) {
-            return true;
-        }
-        return false;
+        return this == anotherSpitfire;
     }
 }

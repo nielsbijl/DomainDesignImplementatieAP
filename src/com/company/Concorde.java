@@ -3,7 +3,7 @@ package com.company;
 public class Concorde implements Airplane {
     private String type;
     final int fuelCapacity;
-    public int fuelLevel = 100;
+    public int fuelLevel;
     private Pilot pilot;
 
     public Concorde(String type, int fuelCapacity, int fuelLevel) {
@@ -52,9 +52,6 @@ public class Concorde implements Airplane {
         return type + "  " + getFuelCapacity() + "  " + getFuelLevel() + "  " +  pilot;
     }
     public boolean equals(Concorde anotherConcorde){
-        if (this == anotherConcorde) {
-            return true;
-        }
-        return false;
+        return this == anotherConcorde;
     }
 }
